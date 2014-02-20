@@ -58,14 +58,40 @@
           <ul>
             <li class="fragment">JavaScript Platform built on V8</li>
             <li class="fragment">Core libs (filesystem, network...)</li>
-            <li class="fragment">Super-awesome module system</li>
+            <li class="fragment">Simple module system</li>
+            <li class="fragment">Super-awesome package manager</li>
             <li class="fragment"><em>Node is just JavaScript</em></li>
           </ul>
         </section>
 
         <section>
-          <h2>Async Magic</h2>
-          <blockquote cite="http://nodejs.org">Node.js uses an event-driven, non-blocking I/O model</blockquote>
+          <h3>Node is all about async</h3>
+          <blockquote class="fragment" cite="http://nodejs.org">Node.js uses an event-driven, non-blocking I/O model</blockquote>
+        </section>
+
+        <section>
+          <h3>Popular new platform uses buzzwords... what's new?</h3>
+          <p class="fragment">Async is increasingly important</p>
+          <p class="fragment">Doing more with 1 thread</p>
+          <p class="fragment">More with 1 thread = more with 1 core</p>
+          <p class="fragment">More with 1 core = linear scaling to 4, 8, 32 and beyond</p>
+        </section>
+
+        <section>
+          <p class="fragment">JavaScript's functional flair makes async easy</p>
+<pre><code>function callback(err, data, next) {
+  if (err) {
+    /* do some handling */
+    return console.log(err);
+  }
+  console.log("Here's some user data: ", data);
+  next(null, data);
+}
+users.fetch(callback)</code></pre>
+        </section>
+
+        <section>
+          <h3>What are some [contrived] practical uses?</h3>
         </section>
 
 			</div>
