@@ -93,7 +93,7 @@
         <section>
 <pre id="tcpserver"><code>void main() {
   int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-
+<span class="fragment highlight-red">
   struct sockaddr_in  *socket     = malloc(sizeof(struct sockaddr_in)),
                       *connection = malloc(sizeof(struct sockaddr_in));
 
@@ -109,7 +109,7 @@
 
   int conn_size = sizeof(*connection);
   int conn_fd;
-
+</span>
   while(conn_fd = accept(sock_fd, (struct sockaddr *) connection, &conn_size)) {
     char in[512];
     memset(in, 0, sizeof(in));
@@ -127,12 +127,6 @@
         <section>
 <pre id="tcpserver"><code>void main() {
   int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-
-  struct sockaddr_in  *socket     = malloc(sizeof(struct sockaddr_in)),
-                      *connection = malloc(sizeof(struct sockaddr_in));
-
-  int conn_size = sizeof(*connection);
-  int conn_fd;
 
   <span class="fragment highlight-blue">while(conn_fd = <span class="fragment highlight-green">accept</span>(sock_fd, (struct sockaddr *) connection, &conn_size)) {</span>
     char in[512];
