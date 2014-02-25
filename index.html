@@ -143,6 +143,16 @@
         </section>
 
         <section>
+<pre><code>var http = require("http");
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end("response body");
+}).listen(8765);
+</code></pre>
+        </section>
+
+        <section>
           <p class="fragment">Async is increasingly important</p>
           <p class="fragment">Doing more with 1 thread</p>
           <p class="fragment">More with 1 thread = more with 1 core</p>
