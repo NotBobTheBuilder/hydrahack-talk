@@ -155,6 +155,40 @@ setTimeout(function() {
   }
   close(sock_fd);
 }</code></pre>
+          <p class="fragment"><code>accept</code> is a blocking call</p>
+        </section>
+
+        <section>
+          <img src="fork.jpg" />
+        </section>
+
+        <section>
+<pre id="tcpserver"><code>void main() {
+  int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+
+  while(<span class="fragment highlight-blue">++conn_fd</span> = accept(sock_fd, (struct sockaddr *) connection, &conn_size)) {
+    if (<span class="fragment highlight-green">fork() == 0</span>) {
+      char in[512];
+      memset(in, 0, sizeof(in));
+
+      write(*conn_fd, "Go Ahead:\n", 10);
+      read(*conn_fd, in, 511);
+      printf("%s", in);
+
+      close(*conn_fd);
+    }
+  }
+  close(sock_fd);
+}</code></pre>
+        <p class="fragment">code++</p>
+        <p class="fragment">code++</p>
+        <p class="fragment">code++</p>
+        </section>
+
+        <section>
+          <img src="apache.png" /> 
+          <p class="fragment">In reality apache pre-forks &amp; maintains a pool</p>
+          <p class="fragment">The premise is the same: 1 process per request (by default)</p>
         </section>
 
         <section>
