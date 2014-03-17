@@ -146,6 +146,7 @@ console.log("hello");
         </section>
 
         <section>
+          <h3>Teeny node webserver</h3>
 <pre><code>var http = require("http");
 
 http.createServer(<span class="fragment highlight-green">function(request, response) {
@@ -153,6 +154,11 @@ http.createServer(<span class="fragment highlight-green">function(request, respo
   response.end("response body");
 }</span>).listen(8765);
 </code></pre>
+          <p class="fragment">We map events to behaviour</p>
+          <p class="fragment">Event checking is delegated to Node</p>
+          <p class="fragment">Event handling is implemented in JS</p>
+          <p class="fragment"><i>Our code is only called when something has to be done</i></p>
+          <p class="fragment">Potentially more testable?</p>
         </section>
 
         <section>
@@ -163,20 +169,12 @@ http.createServer(<span class="fragment highlight-green">function(request, respo
         </section>
 
         <section>
-          <p class="fragment">JavaScript's functional flair makes async easy</p>
-<pre><code>function callback(err, data, next) {
-  if (err) {
-    /* do some handling */
-    return console.log(err);
-  }
-  console.log("Here's some user data: ", data);
-  next(null, data);
-}
-users.fetch(callback)</code></pre>
+          <h3>Demo time!</h3>
+          <h4>[Questions so far?]</h4>
         </section>
 
         <section>
-          <h3>What are some [contrived] practical uses?</h3>
+          <h2>Thanks!</h2>
         </section>
 
       </div>
