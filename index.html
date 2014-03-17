@@ -88,69 +88,29 @@
 sleep(1);
 echo("world");
 </code></pre>
-        </section>
-
+          <span class="fragment">
           <h3>Versus:</h3>
-<pre><code>console.log("hello");
-
-setTimeout(function() {
+<pre><code>setTimeout(function() {
   console.log("world");
 }, 1000);
+
 console.log("hello");
 </code></pre>
+          </span>
         </section>
 
         <section>
 <pre id="tcpserver"><code>void main() {
-  int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-<span class="fragment highlight-red">
-  struct sockaddr_in  *socket     = malloc(sizeof(struct sockaddr_in)),
-                      *connection = malloc(sizeof(struct sockaddr_in));
-
-  socket->sin_family = AF_INET;
-  socket->sin_port   = htons(8765);
-  inet_aton("127.0.0.1", &(socket->sin_addr));
-
-  int reuse = 1;
-  setsockopt(sock_fd,SOL_SOCKET,SO_REUSEADDR,&reuse,sizeof(int));
-
-  bind(sock_fd, (struct sockaddr *)socket, sizeof(*socket));
-  listen(sock_fd,5);
-
-  int conn_size = sizeof(*connection);
-  int conn_fd;
-</span>
-  while(conn_fd = accept(sock_fd, (struct sockaddr *) connection, &conn_size)) {
-    char in[512];
-    memset(in, 0, sizeof(in));
-
-    write(conn_fd, "Go Ahead:\n", 10);
-    read(conn_fd, in, 511);
-    printf("%s", in);
-
-    close(conn_fd);
+  s = new Socket("127.0.0.1", 80);
+  while(conn = <span class="fragment">s.accept()</span>) {
+    in = conn.read();
+    /* STUFF */
+    conn.write("200 OK");
+    /* STUFF++ */
+    conn.close();
   }
-  close(sock_fd);
+  s.close()
 }</code></pre>
-        </section>
-
-        <section>
-<pre id="tcpserver"><code>void main() {
-  int sock_fd = socket(AF_INET, SOCK_STREAM, 0);
-
-  <span class="fragment highlight-blue">while(conn_fd = <span class="fragment highlight-green">accept</span>(sock_fd, (struct sockaddr *) connection, &conn_size)) {</span>
-    char in[512];
-    memset(in, 0, sizeof(in));
-
-    write(conn_fd, "Go Ahead:\n", 10);
-    read(conn_fd, in, 511);
-    printf("%s", in);
-
-    close(conn_fd);
-  }
-  close(sock_fd);
-}</code></pre>
-          <p class="fragment"><code>accept</code> is a blocking call</p>
         </section>
 
         <section>
