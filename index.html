@@ -45,6 +45,8 @@
 
         <section>
           <h2>HELLO</h2>
+          <img src="https://pbs.twimg.com/profile_images/435889794439073792/0Zk1fpP5.png" width=200 height=200 />
+          <img src="https://pbs.twimg.com/profile_images/436300083747766272/-c60HwWF.png" width=200 height=200 />
         </section>
 
         <section>
@@ -58,7 +60,7 @@
         <section>
           <h2>Node?</h2>
           <ul>
-            <li class="fragment">JavaScript Platform built on V8</li>
+            <li class="fragment">JavaScript toolset built around V8</li>
             <li class="fragment">Core libs (filesystem, network...)</li>
             <li class="fragment">Simple module system</li>
             <li class="fragment">Super-awesome package manager</li>
@@ -67,7 +69,7 @@
         </section>
 
         <section>
-          <h3>Node is all about async</h3>
+          <h3>Node is all about asynchronous code</h3>
           <blockquote class="fragment" cite="http://nodejs.org">Node.js uses an event-driven, non-blocking I/O model</blockquote>
         </section>
 
@@ -77,7 +79,7 @@
 
         <section>
           <h3>Popular new platform uses buzzwords... what's new?</h3>
-          <p class="fragment">We've been writing code wrong</p>
+          <p class="fragment">We've been writing badly-scaling code</p>
         </section>
 
         <section>
@@ -88,8 +90,9 @@ echo("world");
 </code></pre>
         </section>
 
-        <section>
-<pre><code>
+          <h3>Versus:</h3>
+<pre><code>console.log("hello");
+
 setTimeout(function() {
   console.log("world");
 }, 1000);
