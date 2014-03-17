@@ -148,10 +148,10 @@ console.log("hello");
         <section>
 <pre><code>var http = require("http");
 
-http.createServer(function(request, response) {
+http.createServer(<span class="fragment highlight-green">function(request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.end("response body");
-}).listen(8765);
+}</span>).listen(8765);
 </code></pre>
         </section>
 
